@@ -23,5 +23,8 @@ public class MortgageCalculator {
         double monthlyPay = principal * (monthlyRate * growth) / (growth - 1);
         double interest = (monthlyPay * numberOfPayments) - principal;
 
+        System.out.printf("Expected Monthly payment: $%.2f%n", monthlyPay);
+        System.out.printf("Total interest paid: $%,.2f%n", interest);
+
     }
 }
