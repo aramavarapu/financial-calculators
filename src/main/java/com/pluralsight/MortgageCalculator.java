@@ -15,7 +15,13 @@ public class MortgageCalculator {
         System.out.print("Enter the loan length in years: ");
         int loanYears = scanner.nextInt();
 
-        double annualIntereset = annualInteresetRateAsPercent / 100;
+        double yearlyRate = annualInteresetRateAsPercent / 100;
+        double monthlyRate = yearlyRate / 12;
+        int numberOfPayments = loanYears * 12;
+
+        double growth = Math.pow(1 + monthlyRate, numberOfPayments);
+        double monthlyPay = principal * (monthlyRate * growth) / (growth - 1);
+        double interest = (monthlyPay * numberOfPayments) - principal;
 
     }
 }
